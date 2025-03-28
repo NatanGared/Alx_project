@@ -81,6 +81,7 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.order_id} by {self.customer}"
 
+"""
 class Status(models.Model):
     status_name = models.CharField(max_length=150, unique=True)
     description = models.TextField()
@@ -93,6 +94,6 @@ class User(models.Model):
     user_name = models.CharField(max_length=150, unique=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='status')
     
-
     def __str__(self):
         return self.user_name
+"""
