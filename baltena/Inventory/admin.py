@@ -20,7 +20,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('item_name', 'base_price', 'category')
+    list_display = ('item_name', 'initial_price', 'category')
     search_fields = ('item_name',)
     list_filter = ('category',) 
 
