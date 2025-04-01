@@ -9,6 +9,7 @@ from .serializers import (
     CustomerSerializer, PriceHistorySerializer, IncomingItemSerializer, OrderSerializer,
 )
 from .forms import SignUpForm
+from django.contrib.auth.models import Group
 
 def home(request):
     items = Category.objects.all()
@@ -39,7 +40,10 @@ def register_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+
+            viewer_group, created = Group.objects.get_or_create(name='viewer')
+            user.groups.add(viewer_group)
 
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -49,6 +53,7 @@ def register_user(request):
             return redirect('home')
         else:
             messages.error(request, "Registration failed. Please try again.")
+            print(form.errors)
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})
