@@ -6,21 +6,109 @@
 
 {% if user.is_authenticated %}
 
-<h1>Welcome to the Inventory!</h1>
-<p>This is your home page where you can find the latest inventory updates and items available.</p>
-<br>
-<p>Here are the items in stock:</p>
-<ul>
-    {% for item in items %}
-        <li>{{ item.category_name }}: {{ item.description }}</li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Categories</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Categories</h1>
+        <div class="row">
+            {% for item in items %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.category_name }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <a href="#" class="btn btn-primary">View More</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">No categories available.</p>
+            {% endfor %}
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 {% else %}
 
-<h1>Welcome to the Blog!</h1>
-<p>This is your home page where you can find the latest blog posts and updates.</p></br>
-<p>This is an additional line truly an arrogant logger</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Blog Home</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome to Albastros Baltena!</h1>
+        <p class="lead text-center">This is where you can find the latest baltena posts and updates.</p>
+        
+        <div class="alert alert-info text-center" role="alert">
+            This is an additional line truly an arrogant logger.
+        </div>
+
+        <hr class="my-4">
+        
+        <h2>Latest Baltena Posts</h2>
+        <div class="row">
+            <!-- Example Blog Post 1 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">New Shiro From Bahir-dar</h5>
+                        <p class="card-text">A brief description of what this blog post is about.</p>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post1">Read More</button>
+                        <div id="post1" class="collapse">
+                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Blog Post 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasty Dabo kolo for all</h5>
+                        <p class="card-text">A brief description of what this blog post is about.</p>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post2">Read More</button>
+                        <div id="post2" class="collapse">
+                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Blog Post 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Post Title 3</h5>
+                        <p class="card-text">A brief description of what this blog post is about.</p>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post3">Read More</button>
+                        <div id="post3" class="collapse">
+                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 
 {% endif %}
 

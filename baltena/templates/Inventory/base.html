@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Django Blog{% endblock %}</title>
+    <title>{% block title %}Albastros Baltena{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
@@ -13,6 +13,13 @@
     </header>
 
     <div class="content">
+        </br>
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message}}
+                {% endfor %}
+            {% endif %}
+
         {% block content %}
         <!-- Page-specific content goes here -->
         {% endblock %}
