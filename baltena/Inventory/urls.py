@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
     home, login_user, logout_user, register_user,
-    itemview,
+    itemview, orderview, customerview, sizeview, suppliersview, priceview,
     CategoryViewSet,
     ItemViewSet,
     SizeViewSet,
@@ -33,9 +33,9 @@ urlpatterns = [
     path('logout/',logout_user, name='logout'),
     path('register/',register_user, name='register'),
     path('items/',itemview, name='items'),
-    path('orders/',logout_user, name='orders'),
-    path('customers/',logout_user, name='customers'),
-    path('size/',logout_user, name='size'),
-    path('suppliers/',logout_user, name='suppliers'),
-    path('price/',logout_user, name='price-history'),
+    path('orders/',orderview, name='orders'),
+    path('customers/',customerview, name='customers'),
+    path('size/',sizeview, name='size'),
+    path('suppliers/',suppliersview, name='suppliers'),
+    path('price/',priceview, name='price-history'),
 ]
