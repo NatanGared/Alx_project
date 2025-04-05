@@ -15,18 +15,16 @@
     <title>Categories</title>
 </head>
 <body>
-    <table class="table table-striped table-hover">
-        <thread>
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="table-dark">
             <tr>
                 <th scope="col" style="text-align: center;">ID</th>
                 <th scope="col" style="text-align: center;">Item</th>
                 <th scope="col" style="text-align: center;">Size</th>
                 <th scope="col" style="text-align: center;">Customer</th>
                 <th scope="col" style="text-align: center;">Quantity</th>
-                <th scope="col" style="text-align: center;">Price</th>
-                <th scope="col" style="text-align: center;">Status</th>
             </tr>
-        </thread>
+        </thead>
         <tbody>
     {% if items %}
         {% for item in items %}
@@ -36,8 +34,6 @@
             <td>{{ item.size}}</td>
             <td>{{ item.customer}}</td>
             <td>{{ item.quantity}}</td>
-            <td>{{ item.price}}</td>
-            <td>{{ item.status}}</td>
         </tr>
         {% endfor %}
     {% endif %}

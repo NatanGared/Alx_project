@@ -21,19 +21,15 @@
                 <th scope="col" style="text-align: center;">ID</th>
                 <th scope="col" style="text-align: center;">Name</th>
                 <th scope="col" style="text-align: center;">Description</th>
-                <th scope="col" style="text-align: center;">Price</th>
-                <th scope="col" style="text-align: center;">Category</th>
             </tr>
-        </thead> 
+        </thead>
         <tbody>
     {% if items %}
         {% for item in items %}
         <tr>
             <td>{{ item.id}}</td>
-            <td>{{ item.item_name}}</td>
+            <td>{{ item.category_name}}</td>
             <td>{{ item.description}}</td>
-            <td>{{ item.initial_price}}</td>
-            <td>{{ item.category}}</td>
         </tr>
         {% endfor %}
     {% endif %}

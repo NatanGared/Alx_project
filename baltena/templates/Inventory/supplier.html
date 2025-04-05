@@ -15,8 +15,8 @@
     <title>Categories</title>
 </head>
 <body>
-    <table class="table table-striped table-hover">
-        <thread>
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="table-dark">
             <tr>
                 <th scope="col" style="text-align: center;">ID</th>
                 <th scope="col" style="text-align: center;">Name</th>
@@ -24,7 +24,7 @@
                 <th scope="col" style="text-align: center;">Phone #</th>
                 <th scope="col" style="text-align: center;">Email</th>
             </tr>
-        </thread>
+        </thead>
         <tbody>
     {% if items %}
         {% for item in items %}

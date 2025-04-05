@@ -66,34 +66,6 @@ class Order(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE, related_name='orders_item_size')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='orders_customer')
     quantity = models.PositiveIntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=10)
-
-    def save(self, *args, **kwargs):
-        # Fetch the most recent price from PriceHistory
-        recent_price_entry = PriceHistory.objects.filter(item=self.item, size=self.size).order_by('-effective_date').first()
-        if recent_price_entry:
-            self.price = recent_price_entry.price
-        else:
-            raise ValueError("No price history available for this item and size.")
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Order {self.order_id} by {self.customer}"
-
-"""
-class Status(models.Model):
-    status_name = models.CharField(max_length=150, unique=True)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.description
-
-
-class User(models.Model):
-    user_name = models.CharField(max_length=150, unique=True)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name='status')
-    
-    def __str__(self):
-        return self.user_name
-"""
