@@ -107,3 +107,26 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
 
+def itemview(request):
+    items = Item.objects.all()
+    return render(request, 'item.html',{'items': items})
+
+def orderview(request):
+    items = Order.objects.all()
+    return render(request, 'order.html',{'items': items})
+
+def customerview(request):
+    items = Customer.objects.all()
+    return render(request, 'customer.html',{'items': items})
+
+def sizeview(request):
+    items = Size.objects.all()
+    return render(request, 'size.html',{'items': items})
+
+def suppliersview(request):
+    items = Supplier.objects.all()
+    return render(request, 'supplier.html',{'items': items})
+
+def priceview(request):
+    items = PriceHistory.objects.all()
+    return render(request, 'price.html',{'price': items})
