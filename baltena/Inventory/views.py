@@ -129,4 +129,4 @@ def suppliersview(request):
 
 def priceview(request):
     items = PriceHistory.objects.all()
-    return render(request, 'price.html',{'price': items})
+    return render(request, 'price.html',{'items': items})
