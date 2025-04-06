@@ -1,11 +1,23 @@
 <nav>
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
+    <ul style="display: flex; justify-content: space-between; align-items: center; list-style-type: none; padding: 0; margin: 0;">
+        <div>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'items' %}">Items</a></li>
+            <li><a href="{% url 'category' %}">Category</a></li>
+            <li><a href="{% url 'orders' %}">Orders</a></li>
+            <li><a href="{% url 'customers' %}">Customers</a></li>
+            <li><a href="{% url 'size' %}">Size</a></li>
+            <li><a href="{% url 'suppliers' %}">Suppliers</a></li>
+            <li><a href="{% url 'price-history' %}">Price</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </div>
         {% if user.is_authenticated %}
+        <span style="color: white; margin-left: auto; margin-right: 10px;">{{ user.username }}</span>
         <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'register' %}">Register</a></li>
         {% endif %}
     </ul>
 </nav>

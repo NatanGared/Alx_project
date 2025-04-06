@@ -8,8 +8,6 @@ from .models import (
     PriceHistory,
     IncomingItem,
     Order,
-    #Status,
-    #User,
 )
 
 @admin.register(Category)
@@ -56,19 +54,6 @@ class IncomingItemsAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('order_id', 'item', 'customer', 'quantity', 'price', 'status')
+    list_display = ('order_id', 'item', 'customer', 'quantity')
     search_fields = ('customer__full_name',)
-    list_filter = ('status', 'item', 'customer')  
-"""
-@admin.register(Status)
-class StatusAdmin(admin.ModelAdmin):
-    list_display = ('status_name', 'description')
-    search_fields = ('status_name',)
-    list_filter = ('status_name',)
-
-@admin.register(User)
-class UsersAdmin(admin.ModelAdmin):
-    list_display = ('user_name', 'status')
-    search_fields = ('user_name',)
-    list_filter = ('status',)
-"""
+    list_filter = ('item', 'customer')  

@@ -16,15 +16,15 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Categories</h1>
+        <h1 class="text-center">Welcome To Albastros Baltena!</h1>
         <div class="row">
             {% for item in items %}
                 <div class="col-md-4 mb-4">
-                    <div class="card">
+                    <div class="card d-flex flex-column h-40">  <!-- Added d-flex and flex-column -->
                         <div class="card-body">
                             <h5 class="card-title">{{ item.category_name }}</h5>
-                            <p class="card-text">{{ item.description }}</p>
-                            <a href="#" class="btn btn-primary">View More</a>
+                            <p class="card-text flex-grow-1">{{ item.description }}</p>  <!-- Added flex-grow-1 -->
+                            <a href="#" class="btn btn-primary mt-auto">View More</a>  <!-- Added mt-auto for spacing -->
                         </div>
                     </div>
                 </div>
@@ -52,10 +52,9 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Welcome to Albastros Baltena!</h1>
-        <p class="lead text-center">This is where you can find the latest baltena posts and updates.</p>
         
         <div class="alert alert-info text-center" role="alert">
-            This is an additional line truly an arrogant logger.
+            Login to view our products and their price.
         </div>
 
         <hr class="my-4">
@@ -64,39 +63,41 @@
         <div class="row">
             <!-- Example Blog Post 1 -->
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm d-flex flex-column h-100"> 
                     <div class="card-body">
                         <h5 class="card-title">New Shiro From Bahir-dar</h5>
-                        <p class="card-text">A brief description of what this blog post is about.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post1">Read More</button>
+                        <p class="card-text">A newly mix of different shiro ingridents and spices! </p>
+                        <button class="btn btn-primary mt-auto" data-toggle="collapse" data-target="#post1">Read</button>
                         <div id="post1" class="collapse">
-                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                            <p class="mt-3">These ingridients and spice are organic and they were blended using a new technology, savour the taste its amazing!</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <!-- Example Blog Post 2 -->
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm d-flex flex-column h-100">
                     <div class="card-body">
                         <h5 class="card-title">Tasty Dabo kolo for all</h5>
-                        <p class="card-text">A brief description of what this blog post is about.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post2">Read More</button>
+                        <p class="card-text">This new dabo kolo is made from organic ingredients.</p>
+                        <button class="btn btn-primary mt-auto" data-toggle="collapse" data-target="#post2">Read</button>
                         <div id="post2" class="collapse">
-                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                            <p class="mt-3">This new dabo kolo was aquired from newly rising food company thaat have been gaining fame around the city.</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <!-- Example Blog Post 3 -->
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm d-flex flex-column h-100"> 
                     <div class="card-body">
-                        <h5 class="card-title">Blog Post Title 3</h5>
-                        <p class="card-text">A brief description of what this blog post is about.</p>
-                        <button class="btn btn-primary" data-toggle="collapse" data-target="#post3">Read More</button>
+                        <h5 class="card-title">New employee hired</h5>
+                        <p class="card-text">A new employee was hired to reduce waiting time.</p>
+                        <button class="btn btn-primary mt-auto" data-toggle="collapse" data-target="#post3">Read</button>
                         <div id="post3" class="collapse">
-                            <p class="mt-3">This is the full text of Blog Post Title 1. It goes into more detail about the topic and provides additional insights.</p>
+                            <p class="mt-3">Due to the increase in customer volume we have decided to increase the number of our customer relations employees!</p>
                         </div>
                     </div>
                 </div>

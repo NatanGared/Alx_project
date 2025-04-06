@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to the Blog{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Categories</title>
+</head>
+<body>
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" style="text-align: center;">ID</th>
+                <th scope="col" style="text-align: center;">Name</th>
+                <th scope="col" style="text-align: center;">Description</th>
+                <th scope="col" style="text-align: center;">Price</th>
+                <th scope="col" style="text-align: center;">Category</th>
+            </tr>
+        </thead> 
+        <tbody>
+    {% if items %}
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id}}</td>
+            <td>{{ item.item_name}}</td>
+            <td>{{ item.description}}</td>
+            <td>{{ item.initial_price}}</td>
+            <td>{{ item.category}}</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endif %}
+{% endblock %}
